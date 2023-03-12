@@ -2,13 +2,13 @@
 	> File Name: server.cpp
 	> Author: csgec
 	> Mail: 12345678@qq.com 
-	> Created Time: 2023年01月27日 星期五 21时41分44秒
+	> Created Time: 2023年01月31日 星期二 11时34分22秒
  ************************************************************************/
 
-#include"server.h"
 #include"socket.h"
-#include"connection.h"
+#include"server.h"
 #include"acceptor.h"
+#include"connection.h"
 #include<functional>
 
 Server::Server(EventLoop *_loop) : loop(_loop),acceptor(nullptr)
@@ -26,7 +26,7 @@ Server::~Server()
 void Server::newConnection(Socket *sock)
 {
 	Connection *conn=new Connection(loop,sock);
-	std::function<void(Socket *)> cb=std::bind(&Server::deleteConnection,this,std::placeholders::_1);
+	std::function<void(Socket *)>cb=std::bind(&Server::deleteConnection,this,std::placeholders::_1);
 	conn->setDeleteConnectionCallback(cb);
 	connections[sock->getFd()]=conn;
 }

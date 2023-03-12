@@ -2,12 +2,11 @@
 	> File Name: buffer.h
 	> Author: csgec
 	> Mail: 12345678@qq.com 
-	> Created Time: 2023年01月27日 星期五 20时13分08秒
+	> Created Time: 2023年01月29日 星期日 22时10分38秒
  ************************************************************************/
 
 #pragma once
-#include<iostream>
-#include<string.h>
+#include<string>
 
 class Buffer
 {

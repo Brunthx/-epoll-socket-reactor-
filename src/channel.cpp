@@ -2,7 +2,7 @@
 	> File Name: channel.cpp
 	> Author: csgec
 	> Mail: 12345678@qq.com 
-	> Created Time: 2023年01月27日 星期五 12时53分44秒
+	> Created Time: 2023年01月30日 星期一 13时19分29秒
  ************************************************************************/
 
 #include"channel.h"
@@ -24,7 +24,7 @@ Channel::~Channel()
 
 void Channel::handleEvent()
 {
-	callback();
+	loop->addThread(callback);
 }
 
 void Channel::enableReading()
@@ -48,14 +48,14 @@ uint32_t Channel::getRevents()
 	return revents;
 }
 
-bool Channel::getInEpoll()
-{
-	return inEpoll;
-}
-
 void Channel::setInEpoll()
 {
 	inEpoll=true;
+}
+
+bool Channel::getInEpoll()
+{
+	return inEpoll;
 }
 
 void Channel::setRevents(uint32_t _ev)

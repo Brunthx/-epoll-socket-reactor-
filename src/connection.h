@@ -2,12 +2,12 @@
 	> File Name: connection.h
 	> Author: csgec
 	> Mail: 12345678@qq.com 
-	> Created Time: 2023年01月27日 星期五 20时03分10秒
+	> Created Time: 2023年01月30日 星期一 22时38分59秒
  ************************************************************************/
 
 #pragma once
 #include<functional>
-#include<string.h>
+#include<string>
 
 class EventLoop;
 class Socket;
@@ -27,6 +27,6 @@ public:
 	Connection(EventLoop *_loop,Socket *_sock);
 	~Connection();
 
-	void echo(int sockfd);
+	void echo(int fd);
 	void setDeleteConnectionCallback(std::function<void(Socket *)>);
 };

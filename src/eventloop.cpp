@@ -2,17 +2,19 @@
 	> File Name: eventloop.cpp
 	> Author: csgec
 	> Mail: 12345678@qq.com 
-	> Created Time: 2023年01月27日 星期五 18时25分26秒
+	> Created Time: 2023年01月30日 星期一 20时50分57秒
  ************************************************************************/
 
-#include"channel.h"
 #include"eventloop.h"
 #include"epoll.h"
+#include"channel.h"
+#include"threadpool.h"
 #include<vector>
 
-EventLoop::EventLoop() : ep(nullptr),quit(false)
+EventLoop::EventLoop() : ep(nullptr),threadPool(nullptr),quit(false)
 {
 	ep=new Epoll();
+	threadPool=new ThreadPool();
 }
 
 EventLoop::~EventLoop()
@@ -35,5 +37,10 @@ void EventLoop::loop()
 
 void EventLoop::updateChannel(Channel *ch)
 {
-	ep->updateChannel(ch);	
+	ep->updateChannel(ch);
+}
+
+void EventLoop::addThread(std::function<void()> func)
+{
+	threadPool->add(func);
 }

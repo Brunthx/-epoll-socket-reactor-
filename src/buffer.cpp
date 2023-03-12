@@ -2,7 +2,7 @@
 	> File Name: buffer.cpp
 	> Author: csgec
 	> Mail: 12345678@qq.com 
-	> Created Time: 2023年01月27日 星期五 20时20分09秒
+	> Created Time: 2023年01月29日 星期日 22时14分18秒
  ************************************************************************/
 
 #include"buffer.h"

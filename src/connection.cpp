@@ -2,16 +2,16 @@
 	> File Name: connection.cpp
 	> Author: csgec
 	> Mail: 12345678@qq.com 
-	> Created Time: 2023年01月27日 星期五 20时40分56秒
+	> Created Time: 2023年01月30日 星期一 22时49分37秒
  ************************************************************************/
 
-#include"channel.h"
 #include"connection.h"
-#include"buffer.h"
 #include"socket.h"
+#include"buffer.h"
+#include"channel.h"
 #include"util.h"
-#include<string.h>
 #include<unistd.h>
+#include<string.h>
 #include<iostream>
 
 Connection::Connection(EventLoop *_loop,Socket *_sock) : loop(_loop),sock(_sock),channel(nullptr),inBuffer(new std::string()),readBuffer(nullptr)
@@ -31,7 +31,7 @@ Connection::~Connection()
 
 void Connection::echo(int sockfd)
 {
-	char buf[1024];//这个buf大小无所谓
+	char buf[1024];
 	while(true)
 	{
 		bzero(&buf,sizeof(buf));
